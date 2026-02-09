@@ -20,7 +20,8 @@ class Solution {
     private static boolean canFinish(int[] piles, int speed, int h) {
         int hours = 0;
         for(int pile : piles) {
-            hours += Math.ceil((double) pile / speed);
+            // hours += Math.ceil((double) pile / speed);
+            hours += (pile + speed - 1) / speed;
         }
         return hours <= h;
     }
