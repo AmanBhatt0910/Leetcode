@@ -5,7 +5,7 @@ class Solution {
         dp[0][0] = poured;
         for(int i = 0; i <= query_row; i++) {
             for(int j = 0; j <= i; j++) {
-                double extra = (dp[i][j] - 1) / 2.0;
+                double extra = (dp[i][j] - 1.0) / 2.0;
                 if(extra > 0) {
                     // fill left & right below it
                     dp[i+1][j] += extra;
