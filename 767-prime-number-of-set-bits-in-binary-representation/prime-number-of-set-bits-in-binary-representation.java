@@ -4,7 +4,7 @@ class Solution {
 
         for(int i = left; i <= right; i++) {
             int bitCount = Integer.bitCount(i);
-            if(bitCount > 1 && isPrime(bitCount)) {
+            if(isPrime(bitCount)) {
                 primeSetBits++;
             }
         }
@@ -13,6 +13,9 @@ class Solution {
     }
 
     private static boolean isPrime(int setBits) {
+        if(setBits < 2) {
+            return false;
+        }
         for(int i = 2; i <= Math.sqrt(setBits); i++) {
             if(setBits % i == 0) {
                 return false;
