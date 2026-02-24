@@ -15,19 +15,19 @@
  */
 class Solution {
     public int sumRootToLeaf(TreeNode root) {
-        return sumRootToLeafHelper(root, "");
+        return sumRootToLeafHelper(root, 0);
     }
 
-    private int sumRootToLeafHelper(TreeNode root, String num) {
+    private int sumRootToLeafHelper(TreeNode root, int num) {
         if(root == null) {
             return 0;
         }
 
         if(root.left == null && root.right == null) {
             // 2 is base.
-            return Integer.parseInt(num + root.val, 2);
+            return (num * 2) + root.val;
         }
 
-        return sumRootToLeafHelper(root.left, num + root.val) + sumRootToLeafHelper(root.right, num+root.val);
+        return sumRootToLeafHelper(root.left, num*2 + root.val) + sumRootToLeafHelper(root.right, num*2 +root.val);
     }
 }
