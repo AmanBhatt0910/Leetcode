@@ -1,6 +1,6 @@
 class Solution {
     public int minAddToMakeValid(String s) {
-        Stack stack = new Stack();
+        Stack<Character> stack = new Stack();
         int moves = 0;
 
         for(char ch : s.toCharArray()) {
