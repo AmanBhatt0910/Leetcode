@@ -1,22 +1,24 @@
 class Solution {
     public long maxAlternatingSum(int[] nums) {
-        for(int i = 0; i < nums.length; i++) {
-            nums[i] = (int) Math.pow(nums[i], 2);
+        int size = nums.length;
+        long[] squares = new long[size];
+        for(int i = 0; i < size; i++) {
+            squares[i] = (long) Math.pow(nums[i], 2);
         }
         
-        Arrays.sort(nums);
-        long maxAlternatingScore = 0;
+        Arrays.sort(squares);
 
-        int i = 0, j = nums.length - 1;
-        while(i < j) {
-            maxAlternatingScore += nums[j--];
-            maxAlternatingScore -= nums[i++];
+        long score = 0;
+        int left = 0, right = size - 1;
+        while(left < right) {
+            score += squares[right--];
+            score -= squares[left++];
         }
 
-        if(i == j) {
-            maxAlternatingScore += nums[j];
+        if(left == right) {
+            score += squares[right];
         }
 
-        return maxAlternatingScore;
+        return score;
     }
 }
