@@ -18,8 +18,10 @@ class Solution {
             return "";
         }
 
-        while(result.length() < num) {
+        int zeroes = num - result.length();
+        while(zeroes != 0) {
             result.append('0');
+            zeroes--;
         }
 
         return result.toString();
